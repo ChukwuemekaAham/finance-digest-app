@@ -89,12 +89,12 @@ export function NewsListTest() {
   // const articles: FinhubNewsArticle[] = [];
 
   // To test the error state:
-  const isLoading = false;
-  const articles: FinhubNewsArticle[] = []; // (parent would show error)
+  // const isLoading = false;
+  // const articles: FinhubNewsArticle[] = []; // (parent would show error)
 
   // To test the populated state:
-  // const isLoading = false;
-  // const articles = sampleArticles;
+  const isLoading = false;
+  const articles = sampleArticles;
 
   // Simulate the loading UI:
   if (isLoading) {

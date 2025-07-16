@@ -14,7 +14,8 @@ git push origin dev
 git switch -M main
 git merge origin/dev
 
-git pull
+git switch dev
+git pull orign main
 
 git log
 

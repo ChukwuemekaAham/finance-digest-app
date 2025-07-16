@@ -24,7 +24,7 @@ export default function NewsPage() {
       </h2>
       {/* Conditionally render based on error state first */}
       {error ? (
-        <ErrorState onRetry={fetchNews} />
+        <ErrorState onRetry={fetchNews} isLoading={false} />
       ) : (
         // If no error, render the NewsList.
         // The NewsList handle showing skeletons when isLoading is true.

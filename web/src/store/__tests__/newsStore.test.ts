@@ -53,38 +53,41 @@ describe('useNewsStore', () => {
     expect(result.current.articles[0].title).toBe('Headline 1');
   });
 
-  it('should handle API errors and update error state', async () => {
-    const errorMessage = 'Failed to fetch news';
-    // Mock a failed fetch response
-    (fetch as jest.Mock).mockResolvedValue({
+  it('should handle API failure gracefully', async () => {
+    // Arrange: Mock a failed fetch response
+    const errorMessage = 'API is down';
+    (fetch as jest.Mock).mockResolvedValueOnce({
       ok: false,
+      status: 500,
       json: async () => ({ error: errorMessage }),
     });
 
-    const { result } = renderHook(() => useNewsStore());
-
+    // Act: Call the fetchNews action. Ensures all updates are processed before assertions are made
     await act(async () => {
-      await result.current.fetchNews();
+      await useNewsStore.getState().fetchNews();
     });
 
-    expect(result.current.isLoading).toBe(false);
-    expect(result.current.articles).toEqual([]);
-    expect(result.current.error).toBe(errorMessage);
+    // Assert: Check that the error state is updated and articles are empty
+    const state = useNewsStore.getState();
+    expect(state.error).toBe(errorMessage);
+    expect(state.articles).toEqual([]);
+    expect(state.isLoading).toBe(false);
   });
 
-  it('should handle network errors and update error state', async () => {
+  it('should handle network errors gracefully', async () => {
+    // Arrange: Mock a network failure by rejecting the fetch promise
     const networkError = new Error('Network request failed');
-    // Mock a fetch that throws an error
-    (fetch as jest.Mock).mockRejectedValue(networkError);
+    (fetch as jest.Mock).mockRejectedValueOnce(networkError);
 
-    const { result } = renderHook(() => useNewsStore());
-
+    // Act
     await act(async () => {
-      await result.current.fetchNews();
+      await useNewsStore.getState().fetchNews();
     });
 
-    expect(result.current.isLoading).toBe(false);
-    expect(result.current.articles).toEqual([]);
-    expect(result.current.error).toBe(networkError.message);
+    // Assert
+    const state = useNewsStore.getState();
+    expect(state.error).toBe(networkError.message);
+    expect(state.articles).toEqual([]);
+    expect(state.isLoading).toBe(false);
   });
 });
