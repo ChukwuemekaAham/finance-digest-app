@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { FinhubNewsArticle, ApiResponseItem } from '@/types';
+import { FinhubNewsArticle, FinhubMarketNewsApiResponse } from '@/types';
 
 interface NewsState {
   articles: FinhubNewsArticle[]; // All articles fetched from the API
@@ -31,7 +31,7 @@ export const useNewsStore = create<NewsState>((set, get) => ({
         const errorData = await response.json();
         throw new Error(errorData.error || 'Failed to fetch news');
       }
-      const data: ApiResponseItem[] = await response.json(); // Specify the expected response type
+      const data: FinhubMarketNewsApiResponse[] = await response.json(); // Specify the expected response type
 
       // Data Mapping
       const mappedArticles: FinhubNewsArticle[] = data
