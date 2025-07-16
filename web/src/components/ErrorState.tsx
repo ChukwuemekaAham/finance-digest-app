@@ -2,10 +2,10 @@ import { useNewsStore } from '@/store/newsStore';
 
 interface ErrorStateProps {
   onRetry: () => void;
+  isLoading: boolean; // <-- Receive loading state as a prop
 }
 
-export function ErrorState({ onRetry }: ErrorStateProps) {
-  const { isLoading } = useNewsStore();
+export function ErrorState({ onRetry, isLoading }: ErrorStateProps) {
   const isSuggested = process.env.NEXT_PUBLIC_SUGGESTED === 'true'; // Check the environment variable
 
   return (
