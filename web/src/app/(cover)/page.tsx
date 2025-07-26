@@ -54,7 +54,7 @@ function CoverPage() {
 
         <button
           onClick={handleReadyClick}
-          className="mx-auto hidden cursor-pointer rounded-full bg-[#55ACEE] px-16 py-3 text-[32px] font-bold text-white transition-opacity hover:opacity-90 lg:mx-0 lg:ml-auto lg:flex"
+          className="mx-auto hidden cursor-pointer rounded-full bg-[#55ACEE] px-16 py-3 text-[32px] font-bold tracking-wide text-white transition-opacity hover:opacity-90 lg:mx-0 lg:ml-auto lg:flex"
         >
           Ready
         </button>

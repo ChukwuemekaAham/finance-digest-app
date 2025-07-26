@@ -50,7 +50,7 @@ export function NewsList() {
   return (
     <>
       <div className="flex flex-col gap-y-4 md:grid md:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4">
-        {articlesToDisplay.map((article) => (
+        {articlesToDisplay.map(article => (
           <NewsCard key={article.id} article={article} />
         ))}
       </div>

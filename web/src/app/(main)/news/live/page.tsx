@@ -6,7 +6,7 @@ import { NewsCard } from '@/components/NewsCard'; // Reuse the existing card
 import { AlertCircle } from 'lucide-react';
 
 function ConnectionStatus() {
-  const status = useLiveNewsStore((state) => state.connectionStatus);
+  const status = useLiveNewsStore(state => state.connectionStatus);
 
   let statusText = 'Connecting...';
   let statusColor = 'text-yellow-400';
@@ -36,7 +36,7 @@ function ConnectionStatus() {
               ? 'bg-yellow-400'
               : 'bg-red-500'
         }`}
-      ></div>
+      />
       <span className={`text-sm font-semibold ${statusColor}`}>
         {statusText}
       </span>
@@ -49,7 +49,7 @@ export default function LiveNewsPage() {
   useWebSocket();
 
   // Subscribe to the liveArticles state from the store
-  const liveArticles = useLiveNewsStore((state) => state.liveArticles);
+  const liveArticles = useLiveNewsStore(state => state.liveArticles);
 
   return (
     <div className="container mx-auto px-4 py-8 sm:px-6 lg:px-8">
@@ -69,7 +69,7 @@ export default function LiveNewsPage() {
         </div>
       ) : (
         <div className="flex flex-col gap-y-4 md:grid md:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4">
-          {liveArticles.map((article) => (
+          {liveArticles.map(article => (
             <NewsCard key={`${article.id}-${article.date}`} article={article} />
           ))}
         </div>

@@ -31,7 +31,7 @@ describe('NewsCard Component', () => {
     // Check if the title is rendered
     // To handle duplicate elements, query for all and check that at least one is visible.
     const titleElement = screen.getAllByText(
-      'This is a test headline for the news card'
+      'This is a test headline for the news card',
     );
     expect(titleElement.length).toBeGreaterThan(0);
 

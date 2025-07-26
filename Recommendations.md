@@ -103,3 +103,12 @@ Consider adding sticky nav on scroll
 ![alt text](./suggestion/Screenshot%202025-07-12%20220807.png)
 
 ![alt text](./suggestion/Screenshot%202025-07-12%20220852.png)
+
+**4.**
+
+1 pixel (1px) is equal to (1 / viewport width in pixels) _ 100vw. The exact vw value depends on the current viewport (browser window) width. For example, if the viewport is 1920px wide, 1px would be approximately 0.052vw (1 / 1920 _ 100).
+Code
+
+1px = (1 / viewport_width_in_pixels) \* 100vw
+
+6.25vw

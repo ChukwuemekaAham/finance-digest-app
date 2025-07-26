@@ -11,7 +11,7 @@ describe('ErrorState Component', () => {
 
     // Check for the error message
     expect(
-      screen.getByText(/Something went wrong. Please try again later/i)
+      screen.getByText(/Something went wrong. Please try again later/i),
     ).toBeInTheDocument();
 
     // Check if the retry button is there

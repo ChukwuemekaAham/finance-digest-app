@@ -35,8 +35,8 @@ export const useNewsStore = create<NewsState>((set, get) => ({
 
       // Data Mapping
       const mappedArticles: FinhubNewsArticle[] = data
-        .filter((item) => item.image && item.headline) // Filter out articles without image or headline
-        .map((item) => ({
+        .filter(item => item.image && item.headline) // Filter out articles without image or headline
+        .map(item => ({
           id: item.id,
           thumbnail: item.image,
           source: item.source,
@@ -54,6 +54,6 @@ export const useNewsStore = create<NewsState>((set, get) => ({
     }
   },
   loadMoreArticles: () => {
-    set((state) => ({ currentPage: state.currentPage + 1 }));
+    set(state => ({ currentPage: state.currentPage + 1 }));
   },
 }));

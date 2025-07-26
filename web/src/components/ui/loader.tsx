@@ -17,7 +17,7 @@ export function Loader({ className, size = 'md' }: LoaderProps) {
       className={cn(
         'animate-spin rounded-full border-gray-400 border-t-gray-600',
         sizeClasses[size],
-        className
+        className,
       )}
     />
   );

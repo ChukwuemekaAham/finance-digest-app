@@ -10,18 +10,18 @@ interface LiveNewsState {
   clearLiveArticles: () => void;
 }
 
-export const useLiveNewsStore = create<LiveNewsState>((set) => ({
+export const useLiveNewsStore = create<LiveNewsState>(set => ({
   liveArticles: [],
   connectionStatus: 'closed',
 
   // Adds new articles to the top of the list, keeping a max of 50 for performance
-  addLiveArticles: (newArticles) => {
-    set((state) => ({
+  addLiveArticles: newArticles => {
+    set(state => ({
       liveArticles: [...newArticles, ...state.liveArticles].slice(0, 50),
     }));
   },
 
-  setConnectionStatus: (status) => set({ connectionStatus: status }),
+  setConnectionStatus: status => set({ connectionStatus: status }),
 
   clearLiveArticles: () => set({ liveArticles: [] }),
 }));

@@ -2,7 +2,6 @@
 
 import { NewsCard } from './NewsCard';
 import { NewsCardSkeleton } from './NewsCardSkeleton';
-import { FinhubNewsArticle } from '@/types';
 
 // --- Sample JSON Data ---
 
@@ -120,7 +119,7 @@ export function NewsListTest() {
   // This is the main return path for showing the sample data
   return (
     <div className="flex flex-col gap-y-4 md:grid md:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4">
-      {articles.map((article) => (
+      {articles.map(article => (
         <NewsCard key={article.id} article={article} />
       ))}
     </div>

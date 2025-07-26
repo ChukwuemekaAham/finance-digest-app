@@ -1,5 +1,3 @@
-import { useNewsStore } from '@/store/newsStore';
-
 interface ErrorStateProps {
   onRetry: () => void;
   isLoading: boolean; // <-- Receive loading state as a prop

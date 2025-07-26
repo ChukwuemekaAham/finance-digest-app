@@ -30,7 +30,7 @@ export function NewsCard({ article }: NewsCardProps) {
           className="object-cover"
           placeholder="blur"
           blurDataURL="/window.svg" // A small placeholder image
-          onError={(e) => {
+          onError={e => {
             e.currentTarget.onerror = null; // Prevent looping
             e.currentTarget.src = '/window.svg';
           }} // Fallback

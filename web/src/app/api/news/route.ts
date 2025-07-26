@@ -11,7 +11,7 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
     console.error('Server Error: FINNHUB_API_KEY is not configured.');
     return NextResponse.json(
       { error: 'API key is not configured on the server.' },
-      { status: 500 }
+      { status: 500 },
     );
   }
 
@@ -34,7 +34,7 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
         {
           error: `Failed to fetch news from external API: ${errorData.error || 'Unknown error'}`,
         },
-        { status: response.status } // Forward the status code from Finnhub
+        { status: response.status }, // Forward the status code from Finnhub
       );
     }
 
@@ -49,12 +49,12 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
     if (error instanceof Error) {
       return NextResponse.json(
         { error: `Something went wrong: ${error.message}` },
-        { status: 500 }
+        { status: 500 },
       );
     }
     return NextResponse.json(
       { error: 'An unexpected error occurred. Please try again later.' },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
